@@ -1,0 +1,65 @@
+//USING A PROCEDURE
+PROCEDURE dot_product(v1,v2 : ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+    ps:INTEGER :=0;
+BEGIN
+IF (v1.length = v2.length) THEN
+    FOR i FROM 0 TO v1.length-1 STEP 1 DO
+        ps := ps + v1[i]*v2[i];
+    END_FOR
+    Write("the scalar product of these vectors is:",ps);
+ELSE
+    Write("These two vectors are not compatible");
+END_IF
+    
+END
+
+ALGORITHM vectors_product
+VAR
+    v1: ARRAY_OF INTEGER[3];
+    v2: ARRAY_OF INTEGER[3];
+    r:INTEGER :=0;
+BEGIN
+    //read elements of the vectors 
+    dot_product(v1,v2, OUT r);
+    IF (r=0) THEN
+        Write("These two vectors are orthogonal");
+    ELSE
+        Write("These two vectors are not orthogonal");
+    END_IF
+END
+
+//USING A FUNCTION
+
+FUNCTION dot_product(v1,v2 : ARRAY_OF INTEGER) : INTEGER
+VAR
+    i:INTEGER;
+    ps:INTEGER :=0;
+BEGIN
+IF (v1.length = v2.length) THEN
+    FOR i FROM 0 TO v1.length-1 STEP 1 DO
+        ps := ps + v1[i]*v2[i];
+    END_FOR
+    Write("the scalar product of these vectors is:",ps);
+ELSE
+    Write("These two vectors are not compatible");
+END_IF
+    RETURN ps ;
+END
+
+ALGORITHM vectors_product
+VAR
+    v1: ARRAY_OF INTEGER[3];
+    v2: ARRAY_OF INTEGER[3];
+    r:INTEGER :=0;
+BEGIN
+    //read elements of the vectors 
+    r:=dot_product(v1,v2);
+    IF (r=0) THEN
+        Write("These two vectors are orthogonal");
+    ELSE
+        Write("These two vectors are not orthogonal");
+    END_IF
+END
+
