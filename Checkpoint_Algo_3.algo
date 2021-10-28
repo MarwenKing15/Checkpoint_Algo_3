@@ -1,5 +1,5 @@
 //USING A PROCEDURE
-PROCEDURE dot_product(v1,v2 : ARRAY_OF INTEGER)
+PROCEDURE dot_product(v1,v2 : ARRAY_OF INTEGER  , OUT o:INTEGER)
 VAR
     i:INTEGER;
     ps:INTEGER :=0;
